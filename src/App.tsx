@@ -12,6 +12,9 @@ import motsign from "./assets/motsiiign.png";
 import motsiign from "./assets/motsign.png";
 import pentest from "./assets/pentest.png";
 import adminphp from "./assets/adminphp.png";
+import cyberdefense1 from "./assets/cyberdefense-1.png";
+import cyberdefense2 from "./assets/cyberdefense-2.png";
+import cyberdefense3 from "./assets/cyberdefense-3.png";
 import {
   BookOpen,
   Briefcase,
@@ -124,15 +127,15 @@ const academicProjects = [
     ],
     gallery: [
       {
-        src: `${import.meta.env.BASE_URL}assets/cyberdefense-1.png`,
+        src: cyberdefense1,
         alt: "CyberDefense - tableau de bord de supervision",
       },
       {
-        src: `${import.meta.env.BASE_URL}assets/cyberdefense-2.png`,
+        src: cyberdefense2,
         alt: "CyberDefense - analyse de logs et corrélation d'alertes",
       },
       {
-        src: `${import.meta.env.BASE_URL}assets/cyberdefense-3.png`,
+        src: cyberdefense3,
         alt: "CyberDefense - architecture de défense en profondeur",
       },
     ],
@@ -388,7 +391,7 @@ function App() {
         </div>
       </nav>
 
-      <main className="relative mx-auto flex w-full max-w-6xl flex-col gap-20 px-6 pb-24 pt-44 lg:pt-48">
+      <main className="relative mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 pb-24 pt-44 sm:gap-16 lg:gap-20 lg:pt-48">
         <header className="relative overflow-hidden rounded-3xl border border-slate-800/50 bg-slate-900/70 px-8 py-12 shadow-2xl shadow-slate-950/80 backdrop-blur-2xl">
           <div className="absolute inset-y-0 -left-40 w-2/3 bg-gradient-to-tr from-sky-500/10 via-sky-400/5 to-transparent opacity-70 blur-3xl" />
           <div className="relative grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
@@ -508,7 +511,7 @@ Ingénieure civile en Informatique et Gestion, avec une spécialisation en Cyber
           </div>
         </motion.section>
 
-        <motion.section id="projets" {...motionConfig} className="rounded-3xl border border-slate-800/50 bg-slate-900/70 p-10 shadow-lg shadow-slate-950/60 backdrop-blur-xl">
+        <section id="projets" className="rounded-3xl border border-slate-800/50 bg-slate-900/70 p-10 shadow-lg shadow-slate-950/60 backdrop-blur-xl">
           <div className="mb-10 flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <Globe2 className="h-6 w-6 text-sky-400" />
@@ -554,7 +557,7 @@ Ingénieure civile en Informatique et Gestion, avec une spécialisation en Cyber
               </article>
             ))}
           </div>
-        </motion.section>
+        </section>
 
         <section id="competences" className="rounded-3xl border border-slate-800/50 bg-slate-900/70 p-10 shadow-lg shadow-slate-950/60 backdrop-blur-xl">
           <div className="mb-10 flex flex-wrap items-center gap-3">
