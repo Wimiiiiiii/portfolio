@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 // Import d'images locales (exemples)
 import opti from "./assets/opti.png";
 import opti2 from "./assets/optii.png";
@@ -78,6 +78,17 @@ const academicPath = [
 
 const professionalExperiences = [
   {
+    period: "Févr. – Avr. 2026",
+    role: "Stagiaire – Travail de Fin d'Études (TFE)",
+    organisation: "FPMs | Icare",
+    context: "Stage TFE",
+    missions: [
+      "Étude et comparaison du mécanisme On-Mesh Commissioning de Thread avec l'état de l'art pour sécuriser l'ajout de nœuds IoT",
+      "Déploiement d'un système de validation à distance dans un réseau OpenThread de plusieurs millions de nœuds",
+      "Documentation technique et recommandations de sécurisation pour l'intégration à grande échelle",
+    ],
+  },
+  {
     period: "Juillet – Septembre 2025",
     role: "Cybersecurity Intern",
     organisation: "CETIC",
@@ -102,6 +113,30 @@ const professionalExperiences = [
 ];
 
 const academicProjects = [
+  {
+    title: "CyberDefense",
+    company: "Projet académique | Faculté Polytechnique de Mons",
+    role: "Analyste & ingénieure cybersécurité",
+    highlights: [
+      "Conception d'une architecture de défense en profondeur pour un environnement simulé",
+      "Détection d'activités malveillantes via analyse de logs, corrélation d'alertes et investigation",
+      "Proposition d'un plan d'amélioration continue: segmentation, durcissement et réponse à incident",
+    ],
+    gallery: [
+      {
+        src: `${import.meta.env.BASE_URL}assets/cyberdefense-1.png`,
+        alt: "CyberDefense - tableau de bord de supervision",
+      },
+      {
+        src: `${import.meta.env.BASE_URL}assets/cyberdefense-2.png`,
+        alt: "CyberDefense - analyse de logs et corrélation d'alertes",
+      },
+      {
+        src: `${import.meta.env.BASE_URL}assets/cyberdefense-3.png`,
+        alt: "CyberDefense - architecture de défense en profondeur",
+      },
+    ],
+  },
   {
     title: "Pentester junior – Ethical Hacking",
     company: "Projet Master 1 | Faculté Polytechnique de Mons & Thales",
@@ -201,12 +236,47 @@ const academicProjects = [
 // Nouvelle structuration des compétences techniques (remplace l'ancien affichage générique)
 const technicalCompetences = [
   {
-    category: "Développement & programmation",
-    items: ["Python", "C++", "C", "JavaScript", "HTML", "CSS"],
+    category: "Cybersécurité défensive",
+    items: [
+      "Détection & réponse à incident",
+      "Surveillance continue",
+      "Analyse et corrélation de logs",
+      "Gestion des vulnérabilités",
+    ],
   },
   {
-    category: "Frameworks & librairies",
+    category: "Pentesting & sécurité offensive",
+    items: ["Wireshark", "Burp Suite", "Nmap", "Metasploit", "Kali Linux"],
+  },
+  {
+    category: "Sécurité applicative & réseau",
     items: [
+      "Apache + ModSecurity (WAF)",
+      "SIEM : Wazuh, Graylog, Vector",
+      "Segmentation & durcissement",
+      "Sécurité des équipements industriels",
+    ],
+  },
+  {
+    category: "Forensics & IoT",
+    items: [
+      "Analyse forensics IoT",
+      "Gestion de preuves numériques",
+      "Investigation post-incident",
+      "Arduino IDE",
+      "STM32CubeIDE",
+      "STM32CubeProgrammer",
+    ],
+  },
+  {
+    category: "Développement & data",
+    items: [
+      "Python",
+      "C++",
+      "C",
+      "JavaScript",
+      "HTML",
+      "CSS",
       "React Native",
       "Flutter",
       "TensorFlow",
@@ -216,40 +286,8 @@ const technicalCompetences = [
     ],
   },
   {
-    category: "Contrôle de version & environnements",
-    items: ["GitHub", "GitLab", "Anaconda"],
-  },
-  {
-    category: "Cybersécurité & Forensics ",
-    items: [
-      "Analyse forensics IoT",
-      "Gestion de preuves numériques",
-      "Segmentation & durcissement",
-    ],
-  },
-  {
-    category: "Tests d’intrusion / Pentesting",
-    items: ["Wireshark", "Burp Suite", "Nmap", "Metasploit", "Kali Linux"],
-  },
-  {
-    category: "Sécurité applicative & réseau",
-    items: [
-      "Apache + ModSecurity (WAF)",
-      "SIEM : Wazuh, Graylog, Vector",
-      "Gestion des vulnérabilités",
-    ],
-  },
-  {
-    category: "Surveillance & analyse",
-    items: [
-      "Analyse de logs",
-      "Exploitation de vulnérabilités",
-      "Veille & documentation",
-    ],
-  },
-  {
-    category: "IoT",
-    items: ["Arduino IDE", "Sécurité des équipements industriels"],
+    category: "Outils, versioning & environnements",
+    items: ["GitHub", "GitLab", "Docker"],
   },
 ];
 
@@ -294,7 +332,6 @@ const skillMatrix = {
   languages: [
     { label: "Français", flag: "🇫🇷", level: 90 },
     { label: "Anglais", flag: "🇺🇸", level: 90 },
-    { label: "Néerlandais", flag: "🇳🇱", level: 35 },
     { label: "Arabe & Langues berbères", flag: "🇲🇦", level: 100 },
   ],
 };
@@ -307,14 +344,6 @@ const motionConfig = {
 };
 
 function App() {
-  const groupedTools = useMemo(() => {
-    const midpoint = Math.ceil(skillMatrix.tools.length / 2);
-    return [
-      skillMatrix.tools.slice(0, midpoint),
-      skillMatrix.tools.slice(midpoint),
-    ];
-  }, []);
-
   return (
     <div className="relative min-h-screen bg-slate-950 text-slate-100">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -423,7 +452,7 @@ Ingénieure civile en Informatique et Gestion, avec une spécialisation en Cyber
 
         {/* Section "À propos" retirée à la demande */}
 
-        <motion.section id="parcours" {...motionConfig} className="rounded-3xl border border-slate-800/50 bg-slate-900/70 p-10 shadow-lg shadow-slate-950/60 backdrop-blur-xl">
+        <section id="parcours" className="rounded-3xl border border-slate-800/50 bg-slate-900/70 p-10 shadow-lg shadow-slate-950/60 backdrop-blur-xl">
           <div className="mb-8 flex items-center gap-3">
             <BookOpen className="h-6 w-6 text-sky-400" />
             <h2 className="text-2xl font-semibold text-white">Parcours académique</h2>
@@ -440,7 +469,7 @@ Ingénieure civile en Informatique et Gestion, avec une spécialisation en Cyber
               </div>
             ))}
           </div>
-        </motion.section>
+        </section>
 
         <motion.section id="experience" {...motionConfig} className="rounded-3xl border border-slate-800/50 bg-slate-900/70 p-10 shadow-lg shadow-slate-950/60 backdrop-blur-xl">
           <div className="mb-8 flex items-center gap-3">
@@ -527,7 +556,7 @@ Ingénieure civile en Informatique et Gestion, avec une spécialisation en Cyber
           </div>
         </motion.section>
 
-        <motion.section id="competences" {...motionConfig} className="rounded-3xl border border-slate-800/50 bg-slate-900/70 p-10 shadow-lg shadow-slate-950/60 backdrop-blur-xl">
+        <section id="competences" className="rounded-3xl border border-slate-800/50 bg-slate-900/70 p-10 shadow-lg shadow-slate-950/60 backdrop-blur-xl">
           <div className="mb-10 flex flex-wrap items-center gap-3">
             <Languages className="h-6 w-6 text-sky-400" />
             <div>
@@ -597,7 +626,7 @@ Ingénieure civile en Informatique et Gestion, avec une spécialisation en Cyber
               </ul>
             </div>
           </div>
-        </motion.section>
+        </section>
 
         <motion.section id="contact" {...motionConfig} className="grid gap-6 rounded-3xl border border-slate-800/60 bg-slate-900/70 p-10 shadow-lg shadow-slate-950/50 backdrop-blur-xl lg:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-6">
